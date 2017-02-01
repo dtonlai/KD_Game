@@ -1,5 +1,6 @@
 import tkinter as tk
 import time
+from PIL import Image, ImageTk
 
 window = tk.Tk()
 window.geometry("250x250")
@@ -9,20 +10,18 @@ window.geometry("250x250")
 
 def count_down():
 	timer = 10
+	text_display = tk.Text(master=window, height=5, width=10)
+	text_display.grid(row=2)
+	text_display.insert(tk.END, timer)
 	while timer >= 0:
-		label.configure(text=timer)
+		text_display.configure(text=timer)
 		time.sleep(1)
 		timer -= 1
 	time.sleep(1)
-	label.configure(text="Ka-Boom!")
-
+	timer = "Ka-Boom!"
 #def configure_label():
 	#label.configure(text="Button clicked!")
 
-text = tk.Text(window, height=2, width=30)
-text.insert(tk.INSERT, "To be or not to be that is the question")
-text.insert(tk.END, "Bye")
-text.pack
 
 label = tk.Label(window, text="Don't click that button!", width=200)
 label.pack()
